@@ -1367,3 +1367,74 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.grid()
 plt.show()
+
+ 
+                                                                   lab 4
+
+                                                                   1) [0;1] intervalında təsadüfi həqiqi ədədlərdən ibarət siyahı:
+python
+Copy
+Edit
+from random import random
+
+n = 10
+a = [0] * n
+
+for i in range(n):
+    a[i] = random()  # [0;1) intervalında
+
+print(a)
+2) [1;5] intervalında təsadüfi həqiqi ədədlərdən ibarət siyahı:
+python
+Copy
+Edit
+from random import uniform
+
+n = 10
+a = [0] * n
+
+for i in range(n):
+    a[i] = uniform(1, 5)  # [1;5] intervalında
+
+print(a)
+3) [0;7] intervalında təsadüfi tam ədədlərdən ibarət siyahı:
+python
+Copy
+Edit
+from random import randint
+
+n = 10
+a = [0] * n
+
+for i in range(n):
+    a[i] = randint(0, 7)  # [0;7] intervalında tam ədədlər
+
+print(a)
+4) [7;25] intervalında təsadüfi həqiqi ədədlərdən ibarət siyahı:
+python
+Copy
+Edit
+from random import uniform
+
+n = 10
+a = [0] * n
+
+for i in range(n):
+    a[i] = uniform(7, 25)  # [7;25] intervalında həqiqi ədədlər
+
+print(a)
+5) [0;25] intervalında təsadüfi həqiqi ədədlərdən ibarət siyahı:
+python
+Copy
+Edit
+from random import uniform
+
+n = 10
+a = [0] * n
+
+for i in range(n):
+    a[i] = uniform(0, 25)  # [0;25] intervalında həqiqi ədədlər
+
+print(a)
+
+
