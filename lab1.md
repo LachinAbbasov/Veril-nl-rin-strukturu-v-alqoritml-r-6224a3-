@@ -1438,3 +1438,63 @@ for i in range(n):
 print(a)
 
 
+                    LAb 5 
+
+
+
+                    1. [0;1) intervalında dəyişən n sayda təsadüfi həqiqi ədəddən ibarət siyahının (massivin) elementlərinin cəmini hesablayan alqoritm:
+
+funksiya siyahıElementlərininCəminiHesabla(siyahı):
+  cəm = 0
+  üçün hər bir element siyahıda:
+    cəm = cəm + element
+  return cəm
+2. [0;7) intervalında dəyişən n sayda təsadüfi həqiqi ədəddən ibarət siyahının (massivin) elementlərinin hasilini hesablayan alqoritm:
+
+funksiya siyahıElementlərininHasiliniHesabla(siyahı):
+  hasil = 1
+  üçün hər bir element siyahıda:
+    hasil = hasil * element
+  return hasil
+3. C(n) ədədi massivinin (siyahısının) müsbət elementlərinin cəmini hesablayan alqoritm:
+
+funksiya müsbətElementlərinCəminiHesabla(siyahı):
+  cəm = 0
+  üçün hər bir element siyahıda:
+    əgər element > 0 onda:
+      cəm = cəm + element
+  return cəm
+4. A(n) ədədi massivinin (siyahısının) müsbət elementlərinin hasilini hesablayan alqoritm:
+
+funksiya müsbətElementlərinHasiliniHesabla(siyahı):
+  hasil = 1
+  üçün hər bir element siyahıda:
+    əgər element > 0 onda:
+      hasil = hasil * element
+  return hasil
+5. B(n) ədədi massivinin (siyahısının) mənfi elementlərinin cəmini hesablayan alqoritm:
+
+funksiya mənfiElementlərinCəminiHesabla(siyahı):
+  cəm = 0
+  üçün hər bir element siyahıda:
+    əgər element < 0 onda:
+      cəm = cəm + element
+  return cəm
+6. [−3;10) intervalında dəyişən n sayda təsadüfi tam ədəddən ibarət siyahının (massivin) birinci mənfi elementindən əvvəlki elementlərinin ədədi ortasını hesablayan alqoritm:
+
+funksiya birinciMənfidənƏvvəlkiElementlərinOrtasınıHesabla(siyahı):
+  cəm = 0
+  say = 0
+  üçün hər bir element siyahıda:
+    əgər element < 0 onda:
+      qır döngüdən
+    cəm = cəm + element
+    say = say + 1
+
+  əgər say > 0 onda:
+    orta = cəm / say
+  başqa:
+    orta = 0
+  return orta
+Bu alqoritmlər verilən tələblərə uyğun olaraq siyahılardakı elementlərlə müxtəlif əməliyyatları yerinə yetirir. Hər bir alqoritm funksiya şəklində təqdim olunmuşdur ki, bu da onların istifadəsini asanlaşdırır.
+
