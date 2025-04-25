@@ -2628,3 +2628,389 @@ cos(x)−e
 funksiya phi25(x):
   əgər e**(-x) > 1 və ya e
 
+
+
+
+                                                                        lab 10
+
+Laboratoriya işi № 10-da verilən tapşırıqların alqoritmlərini təqdim edirəm. Hər bir tapşırıq üçün alqoritmi Nyuton üsuluna əsasən tərtib edəcəyəm. Nyuton üsulu f(x)=0 tənliyinin təqribi kökünü tapmaq üçün aşağıdakı iterasiya düsturundan istifadə edir:
+
+x 
+n+1
+​
+ =x 
+n
+​
+ − 
+f 
+′
+ (x 
+n
+​
+ )
+f(x 
+n
+​
+ )
+​
+ 
+
+Burada f 
+′
+ (x 
+n
+​
+ ) funksiyanın x 
+n
+​
+  nöqtəsindəki birinci tərtib törəməsidir. Təqribi hesablamalar üçün müəyyən bir dəqiqlik (ϵ) təyin olunmalı və iterasiya prosesinə başlamaq üçün bir başlanğıc_qiymət (x 
+0
+​
+ ) seçilməlidir (adətən verilmiş intervalın daxilindən).
+
+Ümumi Alqoritm (Nyuton Üsulu):
+
+funksiya nyutonÜsulu(f, f_törəmə, başlanğıc_qiymət, dəqiqlik, maksimum_iterasiya):
+  əvvəlki_x = başlanğıc_qiymət
+  üçün iterasiya 1-dən maksimum_iterasiyaya qədər:
+    törəmə_qiyməti = f_törəmə(əvvəlki_x)
+    əgər törəmə_qiyməti == 0 onda:
+      çıxış et("Törəmə sıfıra bərabərdir, üsul tətbiq oluna bilməz.")
+      return NaN // Həll tapılmadı
+    yeni_x = əvvəlki_x - f(əvvəlki_x) / törəmə_qiyməti
+    əgər |yeni_x - əvvəlki_x| < dəqiqlik onda:
+      return yeni_x
+    əvvəlki_x = yeni_x
+  çıxış et("Maksimum iterasiya sayına çatıldı, həll tapılmadı.")
+  return NaN // Həll tapılmadı
+İndi isə hər bir tapşırıq üçün f(x) funksiyasını, onun f 
+′
+ (x) törəməsini və verilmiş intervalı nəzərə alaraq alqoritmi tətbiq edək. Başlanğıc qiymət olaraq intervalın orta nöqtəsini seçəcəyik.
+
+Tapşırıqlar:
+
+f(x)=x⋅arctan(x)−1, [0.0,2.0]
+f 
+′
+ (x)=arctan(x)+ 
+1+x 
+2
+ 
+x
+​
+ 
+
+funksiya f1(x):
+  return x * atan(x) - 1
+
+funksiya f1_törəmə(x):
+  return atan(x) + x / (1 + x*x)
+
+başlanğıc1 = (0.0 + 2.0) / 2
+kök1 = nyutonÜsulu(f1, f1_törəmə, başlanğıc1, 0.0001, 100)
+f(x)= 
+1+x 
+2
+ 
+
+​
+ −2, [0.0,2.0]
+f 
+′
+ (x)= 
+1+x 
+2
+ 
+
+​
+ 
+x
+​
+ 
+
+funksiya f2(x):
+  return sqrt(1 + x*x) - 2
+
+funksiya f2_törəmə(x):
+  return x / sqrt(1 + x*x)
+
+başlanğıc2 = (0.0 + 2.0) / 2
+kök2 = nyutonÜsulu(f2, f2_törəmə, başlanğıc2, 0.0001, 100)
+f(x)=2 
+x
+ −x−2, [−2.0,−1.0]
+f 
+′
+ (x)=2 
+x
+ ln(2)−1
+
+funksiya f3(x):
+  return 2**x - x - 2
+
+funksiya f3_törəmə(x):
+  return 2**x * log(2) - 1
+
+başlanğıc3 = (-2.0 + -1.0) / 2
+kök3 = nyutonÜsulu(f3, f3_törəmə, başlanğıc3, 0.0001, 100)
+f(x)=x 
+3
+ −2x−5, [2.0,3.0]
+f 
+′
+ (x)=3x 
+2
+ −2
+
+funksiya f4(x):
+  return x**3 - 2*x - 5
+
+funksiya f4_törəmə(x):
+  return 3*x*x - 2
+
+başlanğıc4 = (2.0 + 3.0) / 2
+kök4 = nyutonÜsulu(f4, f4_törəmə, başlanğıc4, 0.0001, 100)
+f(x)=e 
+x
+ −2, [0.0,1.0]
+f 
+′
+ (x)=e 
+x
+ 
+
+funksiya f5(x):
+  return exp(x) - 2
+
+funksiya f5_törəmə(x):
+  return exp(x)
+
+başlanğıc5 = (0.0 + 1.0) / 2
+kök5 = nyutonÜsulu(f5, f5_törəmə, başlanğıc5, 0.0001, 100)
+f(x)=ln(x)−1, [2.0,3.0]
+f 
+′
+ (x)= 
+x
+1
+​
+ 
+
+funksiya f6(x):
+  return log(x) - 1
+
+funksiya f6_törəmə(x):
+  return 1 / x
+
+başlanğıc6 = (2.0 + 3.0) / 2
+kök6 = nyutonÜsulu(f6, f6_törəmə, başlanğıc6, 0.0001, 100)
+f(x)=x 
+2
+ −0.2, [0.0,0.2]
+f 
+′
+ (x)=2x
+
+funksiya f7(x):
+  return x*x - 0.2
+
+funksiya f7_törəmə(x):
+  return 2*x
+
+başlanğıc7 = (0.0 + 0.2) / 2
+kök7 = nyutonÜsulu(f7, f7_törəmə, başlanğıc7, 0.0001, 100)
+f(x)=cos(x)−x, [0.0,0.2]
+f 
+′
+ (x)=−sin(x)−1
+
+funksiya f8(x):
+  return cos(x) - x
+
+funksiya f8_törəmə(x):
+  return -sin(x) - 1
+
+başlanğıc8 = (0.0 + 0.2) / 2
+kök8 = nyutonÜsulu(f8, f8_törəmə, başlanğıc8, 0.0001, 100)
+f(x)=x 
+3
+ −2, [0.8,1.0]
+f 
+′
+ (x)=3x 
+2
+ 
+
+funksiya f9(x):
+  return x**3 - 2
+
+funksiya f9_törəmə(x):
+  return 3*x*x
+
+başlanğıc9 = (0.8 + 1.0) / 2
+kök9 = nyutonÜsulu(f9, f9_törəmə, başlanğıc9, 0.0001, 100)
+f(x)=x−cos(x), [2.6,3.0]
+f 
+′
+ (x)=1+sin(x)
+
+funksiya f10(x):
+  return x - cos(x)
+
+funksiya f10_törəmə(x):
+  return 1 + sin(x)
+
+başlanğıc10 = (2.6 + 3.0) / 2
+kök10 = nyutonÜsulu(f10, f10_törəmə, başlanğıc10, 0.0001, 100)
+f(x)=x 
+2
+ −3, [1.0,1.5]
+f 
+′
+ (x)=2x
+
+funksiya f11(x):
+  return x*x - 3
+
+funksiya f11_törəmə(x):
+  return 2*x
+
+başlanğıc11 = (1.0 + 1.5) / 2
+kök11 = nyutonÜsulu(f11, f11_törəmə, başlanğıc11, 0.0001, 100)
+f(x)=x 
+3
+ −5, [1.0,2.0]
+f 
+′
+ (x)=3x 
+2
+ 
+
+funksiya f12(x):
+  return x**3 - 5
+
+funksiya f12_törəmə(x):
+  return 3*x*x
+
+başlanğıc12 = (1.0 + 2.0) / 2
+kök12 = nyutonÜsulu(f12, f12_törəmə, başlanğıc12, 0.0001, 100)
+f(x)=e 
+x
+ −1.5, [0.0,1.0]
+f 
+′
+ (x)=e 
+x
+ 
+
+funksiya f13(x):
+  return exp(x) - 1.5
+
+funksiya f13_törəmə(x):
+  return exp(x)
+
+başlanğıc13 = (0.0 + 1.0) / 2
+kök13 = nyutonÜsulu(f13, f13_törəmə, başlanğıc13, 0.0001, 100)
+f(x)=sin(x)−0.5, [0.0,1.0]
+f 
+′
+ (x)=cos(x)
+
+funksiya f14(x):
+  return sin(x) - 0.5
+
+funksiya f14_törəmə(x):
+  return cos(x)
+
+başlanğıc14 = (0.0 + 1.0) / 2
+kök14 = nyutonÜsulu(f14, f14_törəmə, başlanğıc14, 0.0001, 100)
+f(x)=x 
+2
+ −10, [3.0,4.0]
+f 
+′
+ (x)=2x
+
+funksiya f15(x):
+  return x*x - 10
+
+funksiya f15_törəmə(x):
+  return 2*x
+
+başlanğıc15 = (3.0 + 4.0) / 2
+kök15 = nyutonÜsulu(f15, f15_törəmə, başlanğıc15, 0.0001, 100)
+f(x)=x 
+4
+ −2, [1.0,1.2]
+f 
+′
+ (x)=4x 
+3
+ 
+
+funksiya f16(x):
+  return x**4 - 2
+
+funksiya f16_törəmə(x):
+  return 4*x**3
+
+başlanğıc16 = (1.0 + 1.2) / 2
+kök16 = nyutonÜsulu(f16, f16_törəmə, başlanğıc16, 0.0001, 100)
+f(x)=tan(x)−1, [1.0,2.0]
+f 
+′
+ (x)=sec 
+2
+ (x)=1+tan 
+2
+ (x)
+
+funksiya f17(x):
+  return tan(x) - 1
+
+funksiya f17_törəmə(x):
+  return 1 + tan(x)**2
+
+başlanğıc17 = (1.0 + 2.0) / 2
+kök17 = nyutonÜsulu(f17, f17_törəmə, başlanğıc17, 0.0001, 100)
+f(x)=x 
+2
+ −e, [0.0,1.0]
+f 
+′
+ (x)=2x
+
+funksiya f18(x):
+  return x*x - exp(1)
+
+funksiya f18_törəmə(x):
+  return 2*x
+
+başlanğıc18 = (0.0 + 1.0) / 2
+kök18 = nyutonÜsulu(f18, f18_törəmə, başlanğıc18, 0.0001, 100)
+f(x)=x+cos(x), [−0.2,−0.1]
+f 
+′
+ (x)=1−sin(x)
+
+funksiya f19(x):
+  return x + cos(x)
+
+funksiya f19_törəmə(x):
+  return 1 - sin(x)
+
+başlanğıc19 = (-0.2 + -0.1) / 2
+kök19 = nyutonÜsulu(f19, f19_törəmə, başlanğıc19, 0.0001, 100)
+f(x)=x−sin(x)−0.2, [0.1,0.9]
+f 
+′
+ (x)=1−cos(x)
+
+funksiya f20(x):
+  return x - sin(x) - 0.2
+
+funksiya f20_törəmə(x):
+  return 1 - cos(x)
+
+başlanğıc20 = (0.1 + 0.9) / 2
+kök20 = nyutonÜsulu(f20, f20_törəmə, başlanğıc20, 0.0001, 100)
