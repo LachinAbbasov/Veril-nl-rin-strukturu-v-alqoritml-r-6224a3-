@@ -2221,3 +2221,410 @@ SUALLARIN CAVABLARI:
 Yarıya bölmə üsulu (dixotomiya metodu) verilmiş bir [a,b] intervalında kəsilməz olan f(x) funksiyasının f(a)⋅f(b)<0
 
 
+ 
+                                             lab 9
+
+
+Laboratoriya işi № 9-da verilən tapşırıqların alqoritmlərini təqdim edirəm. Hər bir tapşırıq üçün alqoritmi sadə iterasiya üsuluna əsasən tərtib edəcəyəm. Əvvəlcə, verilmiş f(x)=0 tənliyini x=ϕ(x) ekvivalent formasına gətirməli, sonra isə iterasiya prosesini x 
+n+1
+​
+ =ϕ(x 
+n
+​
+ ) şəklində qurmalıyıq. Iterasiya prosesinin yığılması üçün ∣ϕ 
+′
+ (x)∣<1 şərti verilmiş [a,b] intervalında ödənməlidir. Təqribi hesablamalar üçün müəyyən bir dəqiqlik təyin olunmalıdır (məsələn, ϵ=0.0001) və iterasiya prosesinə başlamaq üçün bir başlanğıc_qiymət seçilməlidir (adətən intervalın daxilindən).
+
+Ümumi Alqoritm (Sadə İterasiya Üsulu):
+
+funksiya sadəİterasiya(phi, başlanğıc_qiymət, dəqiqlik, maksimum_iterasiya):
+  əvvəlki_x = başlanğıc_qiymət
+  üçün iterasiya 1-dən maksimum_iterasiyaya qədər:
+    yeni_x = phi(əvvəlki_x)
+    əgər |yeni_x - əvvəlki_x| < dəqiqlik onda:
+      return yeni_x
+    əvvəlki_x = yeni_x
+  çıxış et("Maksimum iterasiya sayına çatıldı, həll tapılmadı.")
+  return NaN // Həll tapılmadı
+İndi isə hər bir tapşırıq üçün f(x)=0 tənliyini x=ϕ(x) formasına gətirək və verilmiş intervalı nəzərə alaraq alqoritmi tətbiq edək. Başlanğıc qiymət olaraq intervalın orta nöqtəsini seçəcəyik.
+
+Tapşırıqlar:
+
+x⋅arctan(x)−1=0, [0.0,2.0]
+ϕ(x)= 
+arctan(x)
+1
+​
+ 
+
+funksiya phi1(x):
+  əgər arctan(x) == 0 onda:
+    return NaN
+  return 1 / arctan(x)
+
+başlanğıc1 = (0.0 + 2.0) / 2
+kök1 = sadəİterasiya(phi1, başlanğıc1, 0.0001, 100)
+1+x 
+2
+ 
+
+​
+ −2=0, [0.0,2.0]
+x= 
+3
+
+​
+  (analitik həll)
+ϕ(x)= 
+4−x 
+2
+ 
+
+​
+ 
+
+funksiya phi2(x):
+  əgər 4 - x*x < 0 onda:
+    return NaN
+  return sqrt(4 - x*x)
+
+başlanğıc2 = (0.0 + 2.0) / 2
+kök2 = sadəİterasiya(phi2, başlanğıc2, 0.0001, 100)
+2 
+x
+ −x−2=0, [−2.0,−1.0]
+ϕ(x)=2 
+x
+ −2
+
+funksiya phi3(x):
+  return 2**x - 2
+
+başlanğıc3 = (-2.0 + -1.0) / 2
+kök3 = sadəİterasiya(phi3, başlanğıc3, 0.0001, 100)
+x 
+3
+ −2x−5=0, [2.0,3.0]
+ϕ(x)= 
+3
+  
+2x+5
+
+​
+ 
+
+funksiya phi4(x):
+  return (2*x + 5)**(1/3)
+
+başlanğıc4 = (2.0 + 3.0) / 2
+kök4 = sadəİterasiya(phi4, başlanğıc4, 0.0001, 100)
+e 
+x
+ −2=0, [0.0,1.0]
+x=ln(2) (analitik həll)
+ϕ(x)=ln(2)
+
+funksiya phi5(x):
+  return log(2)
+
+başlanğıc5 = (0.0 + 1.0) / 2
+kök5 = sadəİterasiya(phi5, başlanğıc5, 0.0001, 100)
+ln(x)−1=0, [2.0,3.0]
+x=e (analitik həll)
+ϕ(x)=e
+
+funksiya phi6(x):
+  return exp(1)
+
+başlanğıc6 = (2.0 + 3.0) / 2
+kök6 = sadəİterasiya(phi6, başlanğıc6, 0.0001, 100)
+x 
+2
+ −0.2=0, [0.0,0.2]
+x= 
+0.2
+
+​
+  (analitik həll)
+ϕ(x)= 
+0.2
+
+​
+ 
+
+funksiya phi7(x):
+  return sqrt(0.2)
+
+başlanğıc7 = (0.0 + 0.2) / 2
+kök7 = sadəİterasiya(phi7, başlanğıc7, 0.0001, 100)
+cos(x)−x=0, [0.0,0.2]
+ϕ(x)=cos(x)
+
+funksiya phi8(x):
+  return cos(x)
+
+başlanğıc8 = (0.0 + 0.2) / 2
+kök8 = sadəİterasiya(phi8, başlanğıc8, 0.0001, 100)
+x 
+3
+ −2=0, [0.8,1.0]
+x= 
+3
+  
+2
+
+​
+  (analitik həll)
+ϕ(x)= 
+3
+  
+2
+
+​
+ 
+
+funksiya phi9(x):
+  return 2**(1/3)
+
+başlanğıc9 = (0.8 + 1.0) / 2
+kök9 = sadəİterasiya(phi9, başlanğıc9, 0.0001, 100)
+x−cos(x)=0, [2.6,3.0]
+ϕ(x)=cos(x)
+
+funksiya phi10(x):
+  return cos(x)
+
+başlanğıc10 = (2.6 + 3.0) / 2
+kök10 = sadəİterasiya(phi10, başlanğıc10, 0.0001, 100)
+x 
+2
+ −3=0, [1.0,1.5]
+x= 
+3
+
+​
+  (analitik həll)
+ϕ(x)= 
+3
+
+​
+ 
+
+funksiya phi11(x):
+  return sqrt(3)
+
+başlanğıc11 = (1.0 + 1.5) / 2
+kök11 = sadəİterasiya(phi11, başlanğıc11, 0.0001, 100)
+x 
+3
+ −5=0, [1.0,2.0]
+x= 
+3
+  
+5
+
+​
+  (analitik həll)
+ϕ(x)= 
+3
+  
+5
+
+​
+ 
+
+funksiya phi12(x):
+  return 5**(1/3)
+
+başlanğıc12 = (1.0 + 2.0) / 2
+kök12 = sadəİterasiya(phi12, başlanğıc12, 0.0001, 100)
+e 
+x
+ −1.5=0, [0.0,1.0]
+x=ln(1.5) (analitik həll)
+ϕ(x)=ln(1.5)
+
+funksiya phi13(x):
+  return log(1.5)
+
+başlanğıc13 = (0.0 + 1.0) / 2
+kök13 = sadəİterasiya(phi13, başlanğıc13, 0.0001, 100)
+sin(x)−0.5=0, [0.0,1.0]
+ϕ(x)=arcsin(0.5)
+
+funksiya phi14(x):
+  return asin(0.5)
+
+başlanğıc14 = (0.0 + 1.0) / 2
+kök14 = sadəİterasiya(phi14, başlanğıc14, 0.0001, 100)
+x 
+2
+ −10=0, [3.0,4.0]
+x= 
+10
+
+​
+  (analitik həll)
+ϕ(x)= 
+10
+
+​
+ 
+
+funksiya phi15(x):
+  return sqrt(10)
+
+başlanğıc15 = (3.0 + 4.0) / 2
+kök15 = sadəİterasiya(phi15, başlanğıc15, 0.0001, 100)
+x 
+4
+ −2=0, [1.0,1.2]
+x= 
+4
+  
+2
+
+​
+  (analitik həll)
+ϕ(x)= 
+4
+  
+2
+
+​
+ 
+
+funksiya phi16(x):
+  return 2**(1/4)
+
+başlanğıc16 = (1.0 + 1.2) / 2
+kök16 = sadəİterasiya(phi16, başlanğıc16, 0.0001, 100)
+tan(x)−1=0, [1.0,2.0]
+ϕ(x)=arctan(1)+π⋅k
+ϕ(x)=x−(tan(x)−1)⋅ 
+sec 
+2
+ (x)
+1
+​
+  (Nyuton üsuluna yaxın)
+ϕ(x)=arctan(1) (intervala uyğun kök)
+
+funksiya phi17(x):
+  return atan(1)
+
+başlanğıc17 = (1.0 + 2.0) / 2
+kök17 = sadəİterasiya(phi17, başlanğıc17, 0.0001, 100)
+x 
+2
+ −e=0, [0.0,1.0]
+x= 
+e
+
+​
+  (analitik həll, intervala daxil deyil)
+ϕ(x)= 
+e
+
+​
+ 
+
+funksiya phi18(x):
+  return sqrt(exp(1))
+
+başlanğıc18 = (0.0 + 1.0) / 2
+kök18 = sadəİterasiya(phi18, başlanğıc18, 0.0001, 100)
+x+cos(x)=0, [−0.2,−0.1]
+ϕ(x)=−cos(x)
+
+funksiya phi19(x):
+  return -cos(x)
+
+başlanğıc19 = (-0.2 + -0.1) / 2
+kök19 = sadəİterasiya(phi19, başlanğıc19, 0.0001, 100)
+x−sin(x)−0.2=0, [0.1,0.9]
+ϕ(x)=sin(x)+0.2
+
+funksiya phi20(x):
+  return sin(x) + 0.2
+
+başlanğıc20 = (0.1 + 0.9) / 2
+kök20 = sadəİterasiya(phi20, başlanğıc20, 0.0001, 100)
+ln(x)−0.5=0, [1.0,1.4]
+x=e 
+0.5
+ = 
+e
+
+​
+  (analitik həll)
+ϕ(x)=e 
+0.5
+ 
+
+funksiya phi21(x):
+  return exp(0.5)
+
+başlanğıc21 = (1.0 + 1.4) / 2
+kök21 = sadəİterasiya(phi21, başlanğıc21, 0.0001, 100)
+x 
+3
+ −12=0, [3.0,4.0]
+x= 
+3
+  
+12
+
+​
+  (analitik həll)
+ϕ(x)= 
+3
+  
+12
+
+​
+ 
+
+funksiya phi22(x):
+  return 12**(1/3)
+
+başlanğıc22 = (3.0 + 4.0) / 2
+kök22 = sadəİterasiya(phi22, başlanğıc22, 0.0001, 100)
+e 
+−x
+ −x=0, [0.0,1.5]
+ϕ(x)=e 
+−x
+ 
+
+funksiya phi23(x):
+  return exp(-x)
+
+başlanğıc23 = (0.0 + 1.5) / 2
+kök23 = sadəİterasiya(phi23, başlanğıc23, 0.0001, 100)
+x 
+2
+ −sin(x)−1=0, [0.0,1.0]
+ϕ(x)= 
+1+sin(x)
+
+​
+ 
+
+funksiya phi24(x):
+  əgər 1 + sin(x) < 0 onda:
+    return NaN
+  return sqrt(1 + sin(x))
+
+başlanğıc24 = (0.0 + 1.0) / 2
+kök24 = sadəİterasiya(phi24, başlanğıc24, 0.0001, 100)
+cos(x)−e 
+−x
+ =0, [0.1,1.0]
+ϕ(x)=arccos(e 
+−x
+ )
+
+funksiya phi25(x):
+  əgər e**(-x) > 1 və ya e
+
