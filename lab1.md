@@ -1498,3 +1498,214 @@ funksiya birinciMənfidənƏvvəlkiElementlərinOrtasınıHesabla(siyahı):
   return orta
 Bu alqoritmlər verilən tələblərə uyğun olaraq siyahılardakı elementlərlə müxtəlif əməliyyatları yerinə yetirir. Hər bir alqoritm funksiya şəklində təqdim olunmuşdur ki, bu da onların istifadəsini asanlaşdırır.
 
+
+                       lab 6 
+
+
+
+                       Gəlin bu laboratoriya işindəki tapşırıqların alqoritmlərini tərtib edək. Hər bir tapşırıq üçün alqoritmi sadə və anlaşıqlı şəkildə izah edəcəyəm.
+
+Qeyd: Nümunələrdə Python sintaksisinə yaxın psevdokoddan istifadə olunacaq.
+
+Tapşırıq 1: İki ölçülü A(n,m) ədədi massivinin bütün elementlərinin cəmini hesablayan alqoritm.
+
+funksiya bütünElementlərinCəminiHesabla(A, n, m):
+  ümumi_cəm = 0
+  üçün i 0-dan n-1-ə qədər:
+    üçün j 0-dan m-1-ə qədər:
+      ümumi_cəm = ümumi_cəm + A[i][j]
+  return ümumi_cəm
+Tapşırıq 2: İki ölçülü A(n,m) ədədi massivinin hər bir sətrindəki elementlərinin cəmini hesablayan alqoritm.
+
+funksiya hərSətrinCəminiHesabla(A, n, m):
+  sətr_cəmləri = []
+  üçün i 0-dan n-1-ə qədər:
+    sətr_cəmi = 0
+    üçün j 0-dan m-1-ə qədər:
+      sətr_cəmi = sətr_cəmi + A[i][j]
+    sətr_cəmləri.əlavəEt(sətr_cəmi)
+  return sətr_cəmləri
+Tapşırıq 3: İki ölçülü A(n,n) ədədi massivinin baş dioqanaldan yuxarıda yerləşən müsbət elementlərinin cəmini hesablayan alqoritm.
+
+funksiya başDioqonaldanYuxarıMüsbətlərinCəminiHesabla(A, n):
+  cəm = 0
+  üçün i 0-dan n-1-ə qədər:
+    üçün j i+1-dən n-1-ə qədər:
+      əgər A[i][j] > 0 onda:
+        cəm = cəm + A[i][j]
+  return cəm
+Tapşırıq 4: İki ölçülü A(n,n) ədədi massivinin baş dioqonalda yerləşən elementlərinin kvadratları cəmini hesablayan alqoritm.
+
+funksiya başDioqonalKvadratlarıCəminiHesabla(A, n):
+  cəm = 0
+  üçün i 0-dan n-1-ə qədər:
+    cəm = cəm + A[i][i] * A[i][i]
+  return cəm
+Tapşırıq 5: İki ölçülü A(n,n) ədədi massivinin baş dioqonalda yerləşən elementlərinin kvadrat kökləri cəmini hesablayan alqoritm.
+
+funksiya başDioqonalKvadratKökləriCəminiHesabla(A, n):
+  cəm = 0
+  üçün i 0-dan n-1-ə qədər:
+    əgər A[i][i] >= 0 onda:
+      cəm = cəm + sqrt(A[i][i])
+  return cəm
+Qeyd: sqrt() kvadrat kök funksiyasını təmsil edir.
+
+Tapşırıq 6: İki ölçülü A(n,m) ədədi massivinin hər bir sütunundakı elementlərinin hasilini hesablayan alqoritm.
+
+funksiya hərSütununHasiliniHesabla(A, n, m):
+  sütun_hasilləri = []
+  üçün j 0-dan m-1-ə qədər:
+    sütun_hasili = 1
+    üçün i 0-dan n-1-ə qədər:
+      sütun_hasili = sütun_hasili * A[i][j]
+    sütun_hasilləri.əlavəEt(sütun_hasili)
+  return sütun_hasilləri
+Tapşırıq 7: İki ölçülü A(n,m) ədədi massivinin hər bir cüt sətrindəki elementlərinin cəmini hesablayan alqoritm.
+
+funksiya cütSətirlərinCəminiHesabla(A, n, m):
+  cüt_sətr_cəmləri = []
+  üçün i 0-dan n-1-ə qədər addım 2 ilə:
+    sətr_cəmi = 0
+    üçün j 0-dan m-1-ə qədər:
+      sətr_cəmi = sətr_cəmi + A[i][j]
+    cüt_sətr_cəmləri.əlavəEt(sətr_cəmi)
+  return cüt_sətr_cəmləri
+Tapşırıq 8: İki ölçülü A(n,m) ədədi massivinin hər bir tək sütunundakı elementlərinin kvadrat köklərinin cəmini hesablayan alqoritm.
+
+funksiya təkSütunKvadratKökləriCəminiHesabla(A, n, m):
+  tək_sütun_kvadrat_kökləri_cəmləri = []
+  üçün j 1-dən m-1-ə qədər addım 2 ilə:
+    sütun_kvadrat_kökləri_cəmi = 0
+    üçün i 0-dan n-1-ə qədər:
+      əgər A[i][j] >= 0 onda:
+        sütun_kvadrat_kökləri_cəmi = sütun_kvadrat_kökləri_cəmi + sqrt(A[i][j])
+    tək_sütun_kvadrat_kökləri_cəmləri.əlavəEt(sütun_kvadrat_kökləri_cəmi)
+  return tək_sütun_kvadrat_kökləri_cəmləri
+Tapşırıq 9: İki ölçülü A(n,m) ədədi massivinin hər bir tək sətrindəki elementlərinin hasilini hesablayan alqoritm.
+
+funksiya təkSətirlərinHasiliniHesabla(A, n, m):
+  tək_sətr_hasilləri = []
+  üçün i 1-dən n-1-ə qədər addım 2 ilə:
+    sətr_hasili = 1
+    üçün j 0-dan m-1-ə qədər:
+      sətr_hasili = sətr_hasili * A[i][j]
+    tək_sətr_hasilləri.əlavəEt(sətr_hasili)
+  return tək_sətr_hasilləri
+Tapşırıq 10: İki ölçülü A(n,m) ədədi massivində elementləri cəmi mənfi olan sütunun nömrəsini təyin etməli.
+
+funksiya mənfiCəmliSütunNömrəsiniTəyinEt(A, n, m):
+  üçün j 0-dan m-1-ə qədər:
+    sütun_cəmi = 0
+    üçün i 0-dan n-1-ə qədər:
+      sütun_cəmi = sütun_cəmi + A[i][j]
+    əgər sütun_cəmi < 0 onda:
+      return j + 1  // Sütun nömrəsi 1-dən başlayır
+  return -1 // Əgər mənfi cəmli sütun tapılmazsa
+Tapşırıq 11: x dəyişəni iki ölçülü X(n,m) ədədi massivinin elementi olduğunu nəzərə alaraq, hər bir element üçün y=sin(x) funksiyasının qiymətini hesablayan alqoritm.
+
+funksiya sinusuHesabla(X, n, m):
+  Y = yeni n x m ölçülü massiv
+  üçün i 0-dan n-1-ə qədər:
+    üçün j 0-dan m-1-ə qədər:
+      Y[i][j] = sin(X[i][j])
+  return Y
+Qeyd: sin() sinus funksiyasını təmsil edir.
+
+Tapşırıq 12: İki ölçülü A(n,n) ədədi massivinin baş dioqonal elementlərinin cəmini hesablayan alqoritm.
+
+funksiya başDioqonalElementlərininCəminiHesabla(A, n):
+  cəm = 0
+  üçün i 0-dan n-1-ə qədər:
+    cəm = cəm + A[i][i]
+  return cəm
+Tapşırıq 13: İki ölçülü A(n,m) ədədi massivinin hər bir tək sətrindəki elementlərinin kvadratları cəmini hesablayan alqoritm.
+
+funksiya təkSətirlərinKvadratlarıCəminiHesabla(A, n, m):
+  tək_sətr_kvadrat_cəmləri = []
+  üçün i 1-dən n-1-ə qədər addım 2 ilə:
+    sətr_kvadrat_cəmi = 0
+    üçün j 0-dan m-1-ə qədər:
+      sətr_kvadrat_cəmi = sətr_kvadrat_cəmi + A[i][j] * A[i][j]
+    tək_sətr_kvadrat_cəmləri.əlavəEt(sətr_kvadrat_cəmi)
+  return tək_sətr_kvadrat_cəmləri
+Tapşırıq 14: İki ölçülü A(n,n) ədədi massivinin baş dioqonalda yerləşən elementlərinin həndəsi ortasını hesablayan alqoritm.
+
+funksiya başDioqonalHəndəsiOrtasınıHesabla(A, n):
+  hasil = 1
+  say = 0
+  üçün i 0-dan n-1-ə qədər:
+    hasil = hasil * A[i][i]
+    say = say + 1
+  əgər say > 0 onda:
+    həndəsi_orta = hasil ** (1/say)
+  başqa:
+    həndəsi_orta = 0
+  return həndəsi_orta
+Tapşırıq 15: İki ölçülü A(n,m) ədədi massivinin hər bir sütunundakı mənfi elementlərinin hasilini hesablayan alqoritm.
+
+funksiya hərSütununMənfiElementləriHasiliniHesabla(A, n, m):
+  sütun_mənfi_hasilləri = []
+  üçün j 0-dan m-1-ə qədər:
+    sütun_mənfi_hasili = 1
+    mənfi_element_var = yalan
+    üçün i 0-dan n-1-ə qədər:
+      əgər A[i][j] < 0 onda:
+        sütun_mənfi_hasili = sütun_mənfi_hasili * A[i][j]
+        mənfi_element_var = doğru
+    əgər mənfi_element_var onda:
+      sütun_mənfi_hasilləri.əlavəEt(sütun_mənfi_hasili)
+    başqa:
+      sütun_mənfi_hasilləri.əlavəEt(1) // Mənfi element yoxdursa, hasil 1 olur
+  return sütun_mənfi_hasilləri
+Tapşırıq 16: İki ölçülü A(n,n) ədədi massivinin baş dioqonaldan aşağıda yerləşən elementlərinin hasilini hesablayan alqoritm.
+
+funksiya başDioqonaldanAşağıElementlərinHasiliniHesabla(A, n):
+  hasil = 1
+  üçün i 1-dən n-1-ə qədər:
+    üçün j 0-dan i-1-ə qədər:
+      hasil = hasil * A[i][j]
+  return hasil
+Tapşırıq 17: İki ölçülü A(n,m) ədədi massivindən bir ölçülü B massivi qurmalı. Beləki, B massivinin hər bir elementi A massivinin uyğun sütun elementləri cəminə bərabərdir.
+
+funksiya sütunCəmlərindənBirÖlçülüMassivQur(A, n, m):
+  B = yeni m ölçülü massiv
+  üçün j 0-dan m-1-ə qədər:
+    sütun_cəmi = 0
+    üçün i 0-dan n-1-ə qədər:
+      sütun_cəmi = sütun_cəmi + A[i][j]
+    B[j] = sütun_cəmi
+  return B
+Tapşırıq 18: İki ölçülü A(n,m) ədədi massivində elementləri cəmi mənfi olan sətrin nömrəsini təyin etməli.
+
+funksiya mənfiCəmliSətrNömrəsiniTəyinEt(A, n, m):
+  üçün i 0-dan n-1-ə qədər:
+    sətr_cəmi = 0
+    üçün j 0-dan m-1-ə qədər:
+      sətr_cəmi = sətr_cəmi + A[i][j]
+    əgər sətr_cəmi < 0 onda:
+      return i + 1 // Sətr nömrəsi 1-dən başlayır
+  return -1 // Əgər mənfi cəmli sətr tapılmazsa
+Tapşırıq 19: İki ölçülü A(n,n) ədədi massivin mənfi elementlərinin yerinə sıfırlar yazıb, matrisi qəbul olunmuş formada çap edin.
+
+funksiya mənfiləriSıfırla(A, n):
+  üçün i 0-dan n-1-ə qədər:
+    üçün j 0-dan n-1-ə qədər:
+      əgər A[i][j] < 0 onda:
+        A[i][j] = 0
+  çapEtMassivi(A, n, n) // Massivi çap edən funksiya
+funksiya çapEtMassivi(massiv, n, m):
+  üçün i 0-dan n-1-ə qədər:
+    üçün j 0-dan m-1-ə qədər:
+      çap et(massiv[i][j], boşluqla ayıraraq)
+    yeni sətir çap et
+Tapşırıq 20: Elementləri tam ədədlər olan iki ölçülü A(n,n) ədədi massivinin hər sətrindəki 3-ə bölünən elementlərin cəmini həmin sətrdəki baş diaqonal elementi ilə əvəz edin. Matrisi qəbul olunmuş formada çap edin.
+
+funksiya üçəBölünənlərinCəminiDioqonalaYaz(A, n):
+  üçün i 0-dan n-1-ə qədər:
+    cəm_3ə_bölünənlər = 0
+    üçün j 0-dan n-1-ə qədər:
+      əgər A[i][j] % 3 == 0 onda:
+        cəm_3ə_bölünənlər = cəm_3ə_bölünənlər + A[i][j]
+    A[i][i] = cəm_3ə_bölünənlər
+  çapEtMassivi(A, n, n)
