@@ -1709,3 +1709,220 @@ funksiya üçəBölünənlərinCəminiDioqonalaYaz(A, n):
         cəm_3ə_bölünənlər = cəm_3ə_bölünənlər + A[i][j]
     A[i][i] = cəm_3ə_bölünənlər
   çapEtMassivi(A, n, n)
+
+
+                                                   lab 7
+
+                                                   Laboratoriya işi № 7-də verilən tapşırıqların alqoritmlərini təqdim edirəm. Hər bir tapşırıq üçün alqoritmi sadə və anlaşıqlı şəkildə izah edəcəyəm.
+
+**Qeyd:** Nümunələrdə Python sintaksisinə yaxın psevdokoddan istifadə olunacaq.
+
+**Tapşırıq 1: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək cüt ədədləri yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya cutEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, cüt ədədləri tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  cüt_ədədlərin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  üçün ədəd simvol ədədlərdə:
+    ədəd = tam_ədədə_çevir(ədəd_simvol)
+    əgər ədəd % 2 == 0 onda:
+      faylı_yaz(çıxış_faylı, ədəd + " ")
+      cüt_ədədlərin_cəmi = cüt_ədədlərin_cəmi + ədəd
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return cüt_ədədlərin_cəmi
+```
+
+**Tapşırıq 2: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək tək ədədləri yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya tekEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, tək ədədləri tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  tək_ədədlərin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  üçün ədəd simvol ədədlərdə:
+    ədəd = tam_ədədə_çevir(ədəd_simvol)
+    əgər ədəd % 2 != 0 onda:
+      faylı_yaz(çıxış_faylı, ədəd + " ")
+      tək_ədədlərin_cəmi = tək_ədədlərin_cəmi + ədəd
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return tək_ədədlərin_cəmi
+```
+
+**Tapşırıq 3: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək cüt nömrəsi olan ədədləri yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya cutNomreliEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, cüt indeksli ədədləri tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  cüt_indeksli_ədədlərin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  üçün indeks, ədəd_simvol enumerate(ədədlər):
+    əgər indeks % 2 == 0 onda:
+      ədəd = tam_ədədə_çevir(ədəd_simvol)
+      faylı_yaz(çıxış_faylı, ədəd + " ")
+      cüt_indeksli_ədədlərin_cəmi = cüt_indeksli_ədədlərin_cəmi + ədəd
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return cüt_indeksli_ədədlərin_cəmi
+```
+
+**Tapşırıq 4: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək tək nömrəsi olan ədədləri yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya tekNomreliEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, tək indeksli ədədləri tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  tək_indeksli_ədədlərin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  üçün indeks, ədəd_simvol enumerate(ədədlər):
+    əgər indeks % 2 != 0 onda:
+      ədəd = tam_ədədə_çevir(ədəd_simvol)
+      faylı_yaz(çıxış_faylı, ədəd + " ")
+      tək_indeksli_ədədlərin_cəmi = tək_indeksli_ədədlərin_cəmi + ədəd
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return tək_indeksli_ədədlərin_cəmi
+```
+
+**Tapşırıq 5: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək ilk 5 ədədi yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya ilkBesEdediFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, ilk 5 ədədi tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  ilk_beş_ədədin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  sayğac = 0
+  üçün ədəd_simvol ədədlərdə:
+    əgər sayğac < 5 onda:
+      ədəd = tam_ədədə_çevir(ədəd_simvol)
+      faylı_yaz(çıxış_faylı, ədəd + " ")
+      ilk_beş_ədədin_cəmi = ilk_beş_ədədin_cəmi + ədəd
+      sayğac = sayğac + 1
+    başqa:
+      qır döngüdən
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return ilk_beş_ədədin_cəmi
+```
+
+**Tapşırıq 6: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək son 3 ədədi yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya sonUcEdediFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, son 3 ədədi tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  son_üç_ədədin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  başlanğıc_indeks = uzunluq(ədədlər) - 3
+  əgər başlanğıc_indeks < 0 onda:
+    başlanğıc_indeks = 0
+  üçün i başlanğıc_indeksdən uzunluq(ədədlər)-1-ə qədər:
+    ədəd = tam_ədədə_çevir(ədədlər[i])
+    faylı_yaz(çıxış_faylı, ədəd + " ")
+    son_üç_ədədin_cəmi = son_üç_ədədin_cəmi + ədəd
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return son_üç_ədədin_cəmi
+```
+
+**Tapşırıq 7: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək 4<X<12 şərtinə uyğun ədədləri yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya aralıqdakıEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, 4<ədəd<12 şərtinə uyğun ədədləri tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  şərtə_uyğun_ədədlərin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  üçün ədəd_simvol ədədlərdə:
+    ədəd = tam_ədədə_çevir(ədəd_simvol)
+    əgər ədəd > 4 və ədəd < 12 onda:
+      faylı_yaz(çıxış_faylı, ədəd + " ")
+      şərtə_uyğun_ədədlərin_cəmi = şərtə_uyğun_ədədlərin_cəmi + ədəd
+  faylı_bağla(giriş_faylı)
+  faylı_bağla(çıxış_faylı)
+  return şərtə_uyğun_ədədlərin_cəmi
+```
+
+**Tapşırıq 8: Ədədi massiv əsasında fayl yaradın. Faylı daxil edərək X<12 şərtinə uyğun ədədləri yeni fayla yazın və əlavə olaraq onların cəmini hesablayın.**
+
+```
+funksiya onİkidənKiçikEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı, çıxış_fayl_adı):
+  # Massivi giriş faylına yaz
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "w")
+  üçün element massivdə:
+    faylı_yaz(giriş_faylı, element + " ")
+  faylı_bağla(giriş_faylı)
+
+  # Giriş faylından oxu, ədəd<12 şərtinə uyğun ədədləri tap, yeni fayla yaz və cəmini hesabla
+  çıxış_faylı = faylı_aç(çıxış_fayl_adı, "w")
+  şərtə_uyğun_ədədlərin_cəmi = 0
+  giriş_faylı = faylı_aç(giriş_fayl_adı, "r")
+  ədədlər_sətiri = faylı_oxu(giriş_faylı)
+  ədədlər = ədədlər_sətiri.split()
+  üçün ədəd_simvol ədədlərdə:
+    ədəd = tam_ədədə_
+
+
+  
