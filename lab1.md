@@ -685,6 +685,682 @@ for xi in x:
         yi = 3 * xi - 2
     y.append(yi)
 
+                                                           lab 3
+
+                                                           🥇 1-ci Tapşırıq
+Verilmiş:
+𝑆
+=
+1
++
+1
+2
++
+1
+3
++
+1
+4
++
+⋯
+S=1+ 
+2
+1
+​
+ + 
+3
+1
+​
+ + 
+4
+1
+​
+ +⋯
+𝜀
+=
+0.01
+ε=0.01
+Algoritm:
+Başla
+
+𝑆
+=
+1
+S=1, 
+𝑖
+=
+2
+i=2
+
+Əlavə
+=
+1
+𝑖
+Əlavə= 
+i
+1
+​
+ 
+
+Əlavəni 
+𝑆
+S-ə əlavə et
+
+Əgər 
+Əlavə
+≥
+𝜀
+Əlavə≥ε, onda 
+𝑖
+=
+𝑖
++
+1
+i=i+1 və 3-cü addıma qayıt
+
+Bitir
+
+Python Kodu:
+python
+Copy
+Edit
+epsilon = 0.01
+S = 1
+i = 2
+
+while True:
+    term = 1 / i
+    if term < epsilon:
+        break
+    S += term
+    i += 1
+
+print(f"S = {S}")
+Qrafik:
+python
+Copy
+Edit
+import matplotlib.pyplot as plt
+
+epsilon = 0.01
+S = 1
+i = 2
+
+terms = [S]
+
+while True:
+    term = 1 / i
+    if term < epsilon:
+        break
+    S += term
+    terms.append(S)
+    i += 1
+
+plt.plot(range(1, len(terms)+1), terms, marker='o')
+plt.title('1-ci Tapşırıq üçün S cəmi')
+plt.xlabel('İterasiya')
+plt.ylabel('Cəm S')
+plt.grid()
+plt.show()
+🥈 2-ci Tapşırıq
+Verilmiş:
+𝑃
+=
+𝑥
+−
+𝑥
+2
+2
++
+𝑥
+3
+3
+−
+𝑥
+4
+4
++
+⋯
+P=x− 
+2
+x 
+2
+ 
+​
+ + 
+3
+x 
+3
+ 
+​
+ − 
+4
+x 
+4
+ 
+​
+ +⋯
+𝑥
+=
+0.5
+,
+𝜀
+=
+0.01
+x=0.5,ε=0.01
+Algoritm:
+Başla
+
+𝑃
+=
+𝑥
+P=x, 
+𝑖
+=
+2
+i=2
+
+Əlavə
+=
+(
+−
+1
+)
+𝑖
++
+1
+⋅
+𝑥
+𝑖
+𝑖
+Əlavə=(−1) 
+i+1
+ ⋅ 
+i
+x 
+i
+ 
+​
+ 
+
+Əlavəni 
+𝑃
+P-yə əlavə et
+
+Əgər 
+∣
+Əlavə
+∣
+≥
+𝜀
+∣Əlavə∣≥ε, onda 
+𝑖
+=
+𝑖
++
+1
+i=i+1 və 3-cü addıma qayıt
+
+Bitir
+
+Python Kodu:
+python
+Copy
+Edit
+x = 0.5
+epsilon = 0.01
+P = x
+i = 2
+
+while True:
+    term = (-1)**(i+1) * (x**i) / i
+    if abs(term) < epsilon:
+        break
+    P += term
+    i += 1
+
+print(f"P = {P}")
+Qrafik:
+python
+Copy
+Edit
+x = 0.5
+epsilon = 0.01
+P = x
+i = 2
+
+terms = [P]
+
+while True:
+    term = (-1)**(i+1) * (x**i) / i
+    if abs(term) < epsilon:
+        break
+    P += term
+    terms.append(P)
+    i += 1
+
+plt.plot(range(1, len(terms)+1), terms, marker='o', color='green')
+plt.title('2-ci Tapşırıq üçün P cəmi')
+plt.xlabel('İterasiya')
+plt.ylabel('Cəm P')
+plt.grid()
+plt.show()
+🥉 3-cü Tapşırıq
+Verilmiş:
+𝑃
+=
+−
+𝑥
+−
+𝑥
+2
+2
+−
+𝑥
+3
+3
+−
+𝑥
+4
+4
+−
+⋯
+P=−x− 
+2
+x 
+2
+ 
+​
+ − 
+3
+x 
+3
+ 
+​
+ − 
+4
+x 
+4
+ 
+​
+ −⋯
+𝑥
+=
+0.7
+,
+𝜀
+=
+0.01
+x=0.7,ε=0.01
+Algoritm:
+Başla
+
+𝑃
+=
+−
+𝑥
+P=−x, 
+𝑖
+=
+2
+i=2
+
+Əlavə
+=
+−
+𝑥
+𝑖
+𝑖
+Əlavə=− 
+i
+x 
+i
+ 
+​
+ 
+
+Əlavəni 
+𝑃
+P-yə əlavə et
+
+Əgər 
+∣
+Əlavə
+∣
+≥
+𝜀
+∣Əlavə∣≥ε, onda 
+𝑖
+=
+𝑖
++
+1
+i=i+1 və 3-cü addıma qayıt
+
+Bitir
+
+Python Kodu:
+python
+Copy
+Edit
+x = 0.7
+epsilon = 0.01
+P = -x
+i = 2
+
+while True:
+    term = -(x**i) / i
+    if abs(term) < epsilon:
+        break
+    P += term
+    i += 1
+
+print(f"P = {P}")
+Qrafik:
+python
+Copy
+Edit
+x = 0.7
+epsilon = 0.01
+P = -x
+i = 2
+
+terms = [P]
+
+while True:
+    term = -(x**i) / i
+    if abs(term) < epsilon:
+        break
+    P += term
+    terms.append(P)
+    i += 1
+
+plt.plot(range(1, len(terms)+1), terms, marker='o', color='red')
+plt.title('3-cü Tapşırıq üçün P cəmi')
+plt.xlabel('İterasiya')
+plt.ylabel('Cəm P')
+plt.grid()
+plt.show()
+🏅 4-cü Tapşırıq
+Verilmiş:
+𝑆
+=
+sin
+⁡
+𝑥
+1
++
+sin
+⁡
+2
+𝑥
+2
++
+sin
+⁡
+3
+𝑥
+3
++
+⋯
+S= 
+1
+sinx
+​
+ + 
+2
+sin 
+2
+ x
+​
+ + 
+3
+sin 
+3
+ x
+​
+ +⋯
+𝑥
+=
+0.9
+,
+𝜀
+=
+0.001
+x=0.9,ε=0.001
+Algoritm:
+Başla
+
+\sinx
+=
+sin
+⁡
+(
+𝑥
+)
+\sinx=sin(x)
+
+𝑆
+=
+sin
+⁡
+𝑥
+1
+S= 
+1
+sinx
+​
+ , 
+𝑖
+=
+2
+i=2
+
+Əlavə
+=
+sin
+⁡
+𝑖
+(
+𝑥
+)
+𝑖
+Əlavə= 
+i
+sin 
+i
+ (x)
+​
+ 
+
+Əlavəni 
+𝑆
+S-ə əlavə et
+
+Əgər 
+∣
+Əlavə
+∣
+≥
+𝜀
+∣Əlavə∣≥ε, onda 
+𝑖
+=
+𝑖
++
+1
+i=i+1 və 4-cü addıma qayıt
+
+Bitir
+
+Python Kodu:
+python
+Copy
+Edit
+import math
+
+x = 0.9
+epsilon = 0.001
+sinx = math.sin(x)
+S = sinx
+i = 2
+
+while True:
+    term = sinx**i / i
+    if abs(term) < epsilon:
+        break
+    S += term
+    i += 1
+
+print(f"S = {S}")
+Qrafik:
+python
+Copy
+Edit
+import math
+import matplotlib.pyplot as plt
+
+x = 0.9
+epsilon = 0.001
+sinx = math.sin(x)
+S = sinx
+i = 2
+
+terms = [S]
+
+while True:
+    term = sinx**i / i
+    if abs(term) < epsilon:
+        break
+    S += term
+    terms.append(S)
+    i += 1
+
+plt.plot(range(1, len(terms)+1), terms, marker='o', color='purple')
+plt.title('4-cü Tapşırıq üçün S cəmi')
+plt.xlabel('İterasiya')
+plt.ylabel('Cəm S')
+plt.grid()
+plt.show()
+🏆 5-ci Tapşırıq
+Verilmiş:
+𝑆
+=
+1
++
+1
+4
++
+1
+9
++
+1
+16
++
+⋯
+S=1+ 
+4
+1
+​
+ + 
+9
+1
+​
+ + 
+16
+1
+​
+ +⋯
+𝜀
+=
+0.001
+ε=0.001
+Algoritm:
+Başla
+
+𝑆
+=
+1
+S=1, 
+𝑖
+=
+2
+i=2
+
+Əlavə
+=
+1
+𝑖
+2
+Əlavə= 
+i 
+2
+ 
+1
+​
+ 
+
+Əlavəni 
+𝑆
+S-ə əlavə et
+
+Əgər 
+Əlavə
+≥
+𝜀
+Əlavə≥ε, onda 
+𝑖
+=
+𝑖
++
+1
+i=i+1 və 3-cü addıma qayıt
+
+Bitir
+
+Python Kodu:
+python
+Copy
+Edit
+epsilon = 0.001
+S = 1
+i = 2
+
+while True:
+    term = 1 / i**2
+    if term < epsilon:
+        break
+    S += term
+    i += 1
+
+print(f"S = {S}")
+Qrafik:
+python
+Copy
+Edit
+import matplotlib.pyplot as plt
+
+epsilon = 0.001
+S = 1
+i = 2
+
+terms = [S]
+
+while True:
+    term = 1 / i**2
+    if term < epsilon:
+        break
+    S += term
+    terms.append(S)
+    i += 1
+
+plt.plot(range(1, len(terms)+1), terms, marker='o', color='orange')
+plt.title('5-ci Tapşırıq üçün S cəmi')
+plt.xlabel('İterasiya')
+plt.ylabel('Cəm S')
+plt.grid()
+plt.show()
+
 plt.plot(x, y, marker='o', color='orange')
 plt.title('5-ci Funksiya')
 plt.xlabel('x')
