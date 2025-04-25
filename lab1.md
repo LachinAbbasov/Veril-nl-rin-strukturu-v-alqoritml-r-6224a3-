@@ -1925,4 +1925,299 @@ funksiya onİkidənKiçikEdedleriFaylaYazCeminiHesabla(massiv, giriş_fayl_adı,
     ədəd = tam_ədədə_
 
 
-  
+
+                                                      lab 8
+
+  Laboratoriya işi № 8-də verilən tapşırıqların alqoritmlərini təqdim edirəm. Hər bir tapşırıq üçün alqoritmi parçanı yarıya bölmə üsuluna əsasən tərtib edəcəyəm. Alqoritmlərdə f(x) verilmiş tənliyi, [a, b] isə axtarılan kökün yerləşdiyi intervalı bildirir. Təqribi hesablamalar üçün müəyyən bir dəqiqlik təyin olunmalıdır (məsələn, ϵ=0.0001).
+
+Ümumi Alqoritm (Parçanı Yarıya Bölmə Üsulu):
+
+funksiya parçanıYarıyaBölmə(f, a, b, dəqiqlik):
+  əgər f(a) * f(b) >= 0 onda:
+    çıxış et("Verilmiş intervalda kök ola bilər və ya çoxlu kök var.")
+    return NaN // Kök tapılmadı
+
+  dövr et:
+    c = (a + b) / 2
+    əgər f(c) == 0 və ya (b - a) / 2 < dəqiqlik onda:
+      return c
+
+    əgər f(a) * f(c) < 0 onda:
+      b = c
+    başqa:
+      a = c
+İndi isə hər bir tapşırıq üçün f(x) funksiyasını və verilmiş intervalı nəzərə alaraq alqoritmi tətbiq edək.
+
+Tapşırıqlar:
+
+f(x) = x * arctan(x) - 1, [0.0, 2.0]
+
+funksiya f1(x):
+  return x * arctan(x) - 1
+
+kök1 = parçanıYarıyaBölmə(f1, 0.0, 2.0, 0.0001)
+f(x) =  
+1+x 
+2
+ 
+
+​
+ −2, [0.0, 2.0]
+
+funksiya f2(x):
+  return sqrt(1 + x*x) - 2
+
+kök2 = parçanıYarıyaBölmə(f2, 0.0, 2.0, 0.0001)
+f(x) = 2 
+x
+ −x−2, [-2.0, -1.0]
+
+funksiya f3(x):
+  return 2**x - x - 2
+
+kök3 = parçanıYarıyaBölmə(f3, -2.0, -1.0, 0.0001)
+f(x) = x 
+3
+ −2x−5, [2.0, 3.0]
+
+funksiya f4(x):
+  return x**3 - 2*x - 5
+
+kök4 = parçanıYarıyaBölmə(f4, 2.0, 3.0, 0.0001)
+f(x) = e 
+x
+ −2, [0.0, 1.0]
+
+funksiya f5(x):
+  return exp(x) - 2
+
+kök5 = parçanıYarıyaBölmə(f5, 0.0, 1.0, 0.0001)
+f(x) = ln(x)−1, [2.0, 3.0]
+
+funksiya f6(x):
+  return log(x) - 1
+
+kök6 = parçanıYarıyaBölmə(f6, 2.0, 3.0, 0.0001)
+f(x) = x 
+2
+ −0.2, [0.0, 0.2]
+
+funksiya f7(x):
+  return x*x - 0.2
+
+kök7 = parçanıYarıyaBölmə(f7, 0.0, 0.2, 0.0001)
+f(x) = cos(x)−x, [0.0, 0.2]
+
+funksiya f8(x):
+  return cos(x) - x
+
+kök8 = parçanıYarıyaBölmə(f8, 0.0, 0.2, 0.0001)
+f(x) = x 
+3
+ −2, [0.8, 1.0]
+
+funksiya f9(x):
+  return x**3 - 2
+
+kök9 = parçanıYarıyaBölmə(f9, 0.8, 1.0, 0.0001)
+f(x) = x−cos(x), [2.6, 3.0]
+
+funksiya f10(x):
+  return x - cos(x)
+
+kök10 = parçanıYarıyaBölmə(f10, 2.6, 3.0, 0.0001)
+f(x) = x 
+2
+ −3, [1.0, 1.5]
+
+funksiya f11(x):
+  return x*x - 3
+
+kök11 = parçanıYarıyaBölmə(f11, 1.0, 1.5, 0.0001)
+f(x) = x 
+3
+ −5, [1.0, 2.0]
+
+funksiya f12(x):
+  return x**3 - 5
+
+kök12 = parçanıYarıyaBölmə(f12, 1.0, 2.0, 0.0001)
+f(x) = e 
+x
+ −1.5, [0.0, 1.0]
+
+funksiya f13(x):
+  return exp(x) - 1.5
+
+kök13 = parçanıYarıyaBölmə(f13, 0.0, 1.0, 0.0001)
+f(x) = sin(x)−0.5, [0.0, 1.0]
+
+funksiya f14(x):
+  return sin(x) - 0.5
+
+kök14 = parçanıYarıyaBölmə(f14, 0.0, 1.0, 0.0001)
+f(x) = x 
+2
+ −10, [3.0, 4.0]
+
+funksiya f15(x):
+  return x*x - 10
+
+kök15 = parçanıYarıyaBölmə(f15, 3.0, 4.0, 0.0001)
+f(x) = x 
+4
+ −2, [1.0, 1.2]
+
+funksiya f16(x):
+  return x**4 - 2
+
+kök16 = parçanıYarıyaBölmə(f16, 1.0, 1.2, 0.0001)
+f(x) = tan(x)−1, [1.0, 2.0]
+
+funksiya f17(x):
+  return tan(x) - 1
+
+kök17 = parçanıYarıyaBölmə(f17, 1.0, 2.0, 0.0001)
+f(x) = x 
+2
+ −e, [0.0, 1.0]
+
+funksiya f18(x):
+  return x*x - exp(1)
+
+kök18 = parçanıYarıyaBölmə(f18, 0.0, 1.0, 0.0001)
+f(x) = x+cos(x), [-0.2, -0.1]
+
+funksiya f19(x):
+  return x + cos(x)
+
+kök19 = parçanıYarıyaBölmə(f19, -0.2, -0.1, 0.0001)
+f(x) = x−sin(x)−0.2, [0.1, 0.9]
+
+funksiya f20(x):
+  return x - sin(x) - 0.2
+
+kök20 = parçanıYarıyaBölmə(f20, 0.1, 0.9, 0.0001)
+f(x) = ln(x)−0.5, [1.0, 1.4]
+
+funksiya f21(x):
+  return log(x) - 0.5
+
+kök21 = parçanıYarıyaBölmə(f21, 1.0, 1.4, 0.0001)
+f(x) = x 
+3
+ −12, [3.0, 4.0]
+
+funksiya f22(x):
+  return x**3 - 12
+
+kök22 = parçanıYarıyaBölmə(f22, 3.0, 4.0, 0.0001)
+f(x) = e 
+−x
+ −x, [0.0, 1.5]
+
+funksiya f23(x):
+  return exp(-x) - x
+
+kök23 = parçanıYarıyaBölmə(f23, 0.0, 1.5, 0.0001)
+f(x) = x 
+2
+ −sin(x)−1, [0.0, 1.0]
+
+funksiya f24(x):
+  return x*x - sin(x) - 1
+
+kök24 = parçanıYarıyaBölmə(f24, 0.0, 1.0, 0.0001)
+f(x) = cos(x)−e 
+−x
+ , [0.1, 1.0]
+
+funksiya f25(x):
+  return cos(x) - exp(-x)
+
+kök25 = parçanıYarıyaBölmə(f25, 0.1, 1.0, 0.0001)
+f(x) = x 
+2
+ −0.3, [0.4, 0.6]
+
+funksiya f26(x):
+  return x*x - 0.3
+
+kök26 = parçanıYarıyaBölmə(f26, 0.4, 0.6, 0.0001)
+f(x) = x−ln(x)−2, [3.0, 4.0]
+
+funksiya f27(x):
+  return x - log(x) - 2
+
+kök27 = parçanıYarıyaBölmə(f27, 3.0, 4.0, 0.0001)
+f(x) = x 
+2
+ −20, [4.0, 5.0]
+
+funksiya f28(x):
+  return x*x - 20
+
+kök28 = parçanıYarıyaBölmə(f28, 4.0, 5.0, 0.0001)
+f(x) = x 
+3
+ −7, [2.0, 3.0]
+
+funksiya f29(x):
+  return x**3 - 7
+
+kök29 = parçanıYarıyaBölmə(f29, 2.0, 3.0, 0.0001)
+f(x) = sin(x)−x 
+2
+ +0.5, [0.0, 0.48]
+
+funksiya f30(x):
+  return sin(x) - x*x + 0.5
+
+kök30 = parçanıYarıyaBölmə(f30, 0.0, 0.48, 0.0001)
+f(x) = x 
+2
+ −4, [1.0, 2.0]
+
+funksiya f31(x):
+  return x*x - 4
+
+kök31 = parçanıYarıyaBölmə(f31, 1.0, 2.0, 0.0001)
+f(x) = e 
+x
+ −x−2, [0.0, 2.0]
+
+funksiya f32(x):
+  return exp(x) - x - 2
+
+kök32 = parçanıYarıyaBölmə(f32, 0.0, 2.0, 0.0001)
+f(x) = ln(x+1)−x 
+2
+ +0.5, [1.0, 4.0]
+
+funksiya f33(x):
+  return log(x + 1) - x*x + 0.5
+
+kök33 = parçanıYarıyaBölmə(f33, 1.0, 4.0, 0.0001)
+f(x) = x 
+2
+ −cos(x)−2, [1.0, 3.0]
+
+funksiya f34(x):
+  return x*x - cos(x) - 2
+
+kök34 = parçanıYarıyaBölmə(f34, 1.0, 3.0, 0.0001)
+f(x) = x 
+3
+ −x−1, [0.0, 1.0]
+
+funksiya f35(x):
+  return x**3 - x - 1
+
+kök35 = parçanıYarıyaBölmə(f35, 0.0, 1.0, 0.0001)
+Qeyd: Yuxarıdakı alqoritmlərdə arctan, sqrt, exp, log, sin, cos, tan riyazi funksiyaları, ** qüvvətə yüksəltmə operatoru, * vurma operatoru, - çıxma operatoru, / bölmə operatoru, + toplama operatoru, % modul operatoru, ==, <, > müqayisə operatorları, NaN isə "Not a Number" mənasını bildirir. Hər bir tapşırıq üçün parçanıYarıyaBölmə funksiyasını müvafiq f(x) funksiyası və interval ilə çağıraraq təqribi kökü tapmaq mümkündür.
+
+SUALLARIN CAVABLARI:
+
+Yarıya bölmə üsulu (dixotomiya metodu) verilmiş bir [a,b] intervalında kəsilməz olan f(x) funksiyasının f(a)⋅f(b)<0
+
+
